@@ -12,7 +12,7 @@ public class UserTest {
     UserMapper userMapper = session.getMapper(UserMapper.class);
     @Test
     public void test_list() {
-        List<User> users = userMapper.getUsers();
+        Iterable<User> users = userMapper.getUsers();
         for (User user : users) {
             System.out.println(user);
         }
@@ -20,11 +20,16 @@ public class UserTest {
     }
 
     @Test
+    public void test_like() {
+        List<User> userLike = userMapper.getUserNameLike("%li%");
+        userLike.forEach((u) -> System.out.println(u));
+        List<User> users = userMapper.getOrderedUsers();
+        System.out.println(users);
+    }
+
+    @Test
     public void test_getUserById() {
-        for (int i = 0; i < userMapper.getUsers().size(); ++i) {
-            User user = userMapper.getUserById(i + 1);
-            System.out.println(user);
-        }
+        System.out.println(userMapper.getUserById(1));
         session.close();
     }
 

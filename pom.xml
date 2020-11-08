@@ -17,6 +17,7 @@
 
     <modules>
         <module>MyBatisLearning.MyBatis01</module>
+        <module>MyBatisLearning.MyBatis02</module>
     </modules>
 
     <dependencies>

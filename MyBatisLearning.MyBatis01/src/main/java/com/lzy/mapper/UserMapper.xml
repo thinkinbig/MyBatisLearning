@@ -8,8 +8,17 @@
         SELECT * FROM mybatis.users;
     </select>
 
+    <select id="getOrderedUsers" resultType="com.lzy.pojo.User">
+        SELECT * FROM mybatis.users ORDER BY id DESC;
+    </select>
+
     <select id="getUserById" parameterType="int" resultType="com.lzy.pojo.User">
         SELECT * FROM mybatis.users WHERE id=#{id};
+    </select>
+
+
+    <select id="getUserNameLike" parameterType="String" resultType="com.lzy.pojo.User">
+        SELECT * FROM mybatis.users WHERE name LIKE #{value};
     </select>
 
     <insert id="addUser" parameterType="com.lzy.pojo.User">
