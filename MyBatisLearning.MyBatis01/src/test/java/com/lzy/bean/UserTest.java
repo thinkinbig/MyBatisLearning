@@ -1,4 +1,4 @@
-package com.lzy.pojo;
+package com.lzy.bean;
 
 import com.lzy.mapper.UserMapper;
 import com.lzy.util.MyBatisUtils;

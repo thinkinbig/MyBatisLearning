@@ -1,4 +1,4 @@
-package com.lzy.pojo;
+package com.lzy.bean;
 
 import com.lzy.mapper.UserMapper;
 import com.lzy.util.MyBatisUtils;
@@ -45,13 +45,11 @@ public class UserTest {
     public void test_updateUser() {
         userMapper.updateUser(new User(4, "Rick", "I hate Morty"));
         // session.commit();
-        session.close();
     }
 
     @Test
     public void test_deleteUser() {
         userMapper.deleteUser(1);
         // session.commit();
-        session.close();
     }
 }

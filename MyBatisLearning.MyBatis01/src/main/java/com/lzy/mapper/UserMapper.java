@@ -1,6 +1,6 @@
 package com.lzy.mapper;
 
-import com.lzy.pojo.User;
+import com.lzy.bean.User;
 
 import java.util.List;
 

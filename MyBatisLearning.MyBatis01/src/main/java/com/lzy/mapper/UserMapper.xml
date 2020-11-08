@@ -4,28 +4,28 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lzy.mapper.UserMapper">
     <!--select clause-->
-    <select id="getUsers" resultType="com.lzy.pojo.User">
+    <select id="getUsers" resultType="com.lzy.bean.User">
         SELECT * FROM mybatis.users;
     </select>
 
-    <select id="getOrderedUsers" resultType="com.lzy.pojo.User">
+    <select id="getOrderedUsers" resultType="com.lzy.bean.User">
         SELECT * FROM mybatis.users ORDER BY id DESC;
     </select>
 
-    <select id="getUserById" parameterType="int" resultType="com.lzy.pojo.User">
+    <select id="getUserById" parameterType="int" resultType="com.lzy.bean.User">
         SELECT * FROM mybatis.users WHERE id=#{id};
     </select>
 
 
-    <select id="getUserNameLike" parameterType="String" resultType="com.lzy.pojo.User">
+    <select id="getUserNameLike" parameterType="String" resultType="com.lzy.bean.User">
         SELECT * FROM mybatis.users WHERE name LIKE #{value};
     </select>
 
-    <insert id="addUser" parameterType="com.lzy.pojo.User">
+    <insert id="addUser" parameterType="com.lzy.bean.User">
         INSERT INTO mybatis.users (id, name, pwd) VALUES (#{id}, #{name}, #{pwd});
     </insert>
 
-    <update id="updateUser" parameterType="com.lzy.pojo.User">
+    <update id="updateUser" parameterType="com.lzy.bean.User">
         UPDATE mybatis.users SET name=#{name}, pwd=#{pwd} WHERE id=#{id};
     </update>
 

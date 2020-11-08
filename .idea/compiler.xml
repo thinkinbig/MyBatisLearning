@@ -10,5 +10,8 @@
         <module name="MyBatisLearning.MyBatis02" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="MyBatisLearning.MyBatis03" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
