@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.util.List;
 
 public class UserTest {
-    private SqlSession session = MyBatisUtils.getSqlSession();
+    private SqlSession session = MyBatisUtils.newSqlSession();
     UserMapper userMapper = session.getMapper(UserMapper.class);
     @Test
     public void test_list() {
