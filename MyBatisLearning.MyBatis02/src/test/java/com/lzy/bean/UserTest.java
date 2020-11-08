@@ -3,20 +3,34 @@ package com.lzy.bean;
 import com.lzy.mapper.UserMapper;
 import com.lzy.util.MyBatisUtils;
 import org.apache.ibatis.session.SqlSession;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
 
 public class UserTest {
-    private SqlSession session = MyBatisUtils.newSqlSession();
-    UserMapper userMapper = session.getMapper(UserMapper.class);
+    private SqlSession session;
+    private UserMapper userMapper;
+
+    @Before
+    public void setUp() {
+        session = MyBatisUtils.newSqlSession();
+        userMapper = session.getMapper(UserMapper.class);
+    }
+
+
+    @After
+    public void tearDown() {
+        session.close();
+    }
+
     @Test
     public void test_list() {
-        Iterable<User> users = userMapper.getUsers();
+        List<User> users = userMapper.getUsers();
         for (User user : users) {
             System.out.println(user);
         }
-        session.close();
     }
 
     @Test
@@ -30,7 +44,6 @@ public class UserTest {
     @Test
     public void test_getUserById() {
         System.out.println(userMapper.getUserById(1));
-        session.close();
     }
 
     @Test
@@ -38,7 +51,6 @@ public class UserTest {
         User user = new User(1, "lzy", "8888");
         if (userMapper.addUser(user)) { System.out.println("insert successfully"); }
         // session.commit();
-        session.close();
     }
 
     @Test

@@ -9,6 +9,11 @@
         <property name="password_1" value="Erik1101"/>
     </properties>
 
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+
+    </settings>
+
     <typeAliases>
         <typeAlias type="com.lzy.bean.User" alias="User"/>
     </typeAliases>

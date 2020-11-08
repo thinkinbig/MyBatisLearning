@@ -5,9 +5,9 @@
 <mapper namespace="com.lzy.mapper.UserMapper">
 
     <resultMap id="UserMap" type="User">
-        <result column="id" property="id"/>
-        <result column="name" property="name"/>
-        <result column="pwd" property="password"/>
+        <!--<result column="id" property="id"/>-->
+        <!--<result column="name" property="name"/>-->
+        <result property="password" column="pwd"/>
     </resultMap>
     <!--select clause-->
     <select id="getUsers" resultType="User">
@@ -18,8 +18,12 @@
         SELECT * FROM mybatis.users ORDER BY id DESC;
     </select>
 
-    <select id="getUserById" parameterType="int" resultType="User">
+    <select id="getUserById" parameterType="_int" resultMap="UserMap">
         SELECT * FROM mybatis.users WHERE id=#{id};
+    </select>
+
+    <select id="getPassById" parameterType="_int" resultType="String">
+        SELECT pwd FROM mybatis.users WHERE id=#{id};
     </select>
 
 
@@ -35,7 +39,7 @@
         UPDATE mybatis.users SET name=#{name}, pwd=#{pwd} WHERE id=#{id};
     </update>
 
-    <delete id="deleteUser" parameterType="int">
+    <delete id="deleteUser" parameterType="_int">
         DELETE FROM mybatis.users WHERE id=#{id};
     </delete>
 </mapper>

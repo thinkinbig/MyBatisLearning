@@ -11,6 +11,8 @@ public interface UserMapper {
 
     User getUserById(int id);
 
+    String getPassById(int id);
+
     List<User> getUserNameLike(String value);
 
     boolean addUser(User user);
