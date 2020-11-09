@@ -19,12 +19,11 @@ public class UserTest {
         userMapper = session.getMapper(UserMapper.class);
     }
 
+
     @After
     public void tearDown() {
         session.close();
     }
-
-
 
     @Test
     public void test_list() {

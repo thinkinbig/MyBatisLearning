@@ -19,6 +19,7 @@
         <module>MyBatisLearning.MyBatis01</module>
         <module>MyBatisLearning.MyBatis02</module>
         <module>MyBatisLearning.MyBatis03</module>
+        <module>MyBatisLearning.MyBatis04</module>
     </modules>
 
     <dependencies>
@@ -54,6 +55,14 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>

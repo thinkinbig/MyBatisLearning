@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- core configuration-->
+<configuration>
+    <properties resource="db.properties">
+        <property name="username_1" value="root"/>
+        <property name="password_1" value="Erik1101"/>
+    </properties>
+
+    <settings>
+        <!--standard output log-->
+        <!--<setting name="logImpl" value="STDOUT_LOGGING"/>-->
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias type="com.lzy.bean.User" alias="User"/>
+        <typeAlias type="com.lzy.bean.Teacher" alias="Teacher"/>
+        <typeAlias type="com.lzy.bean.Student" alias="Student"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="org.mariadb.jdbc.Driver"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username_1}"/>
+                <property name="password" value="${password_1}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <mappers>
+        <mapper class="com.lzy.mapper.UserMapper"/>
+        <mapper class="com.lzy.mapper.TeacherMapper"/>
+    </mappers>
+
+</configuration>
