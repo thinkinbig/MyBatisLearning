@@ -26,6 +26,9 @@
         SELECT pwd FROM mybatis.users WHERE id=#{id};
     </select>
 
+    <select id="getUsersByLimit" parameterType="map" resultType="User">
+        SELECT * FROM mybatis.users LIMIT #{startIndex}, #{pageSize};
+    </select>
 
     <select id="getUserNameLike" parameterType="String" resultType="User">
         SELECT * FROM mybatis.users WHERE name LIKE #{value};
