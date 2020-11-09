@@ -12,6 +12,8 @@ public interface UserMapper {
 
     List<User> getUsersByLimit(Map<String, Integer> map);
 
+    List<User> getUsersByRowBounds();
+
     User getUserById(int id);
 
     String getPassById(int id);

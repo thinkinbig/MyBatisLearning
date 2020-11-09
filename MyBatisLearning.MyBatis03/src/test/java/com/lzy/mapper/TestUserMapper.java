@@ -4,31 +4,30 @@ import com.lzy.bean.User;
 import com.lzy.util.MyBatisUtils;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class TestUserMapper {
 
-    private static final Logger logger =
-            Logger.getLogger(TestUserMapper.class);
+    private static final PrintStream logger = System.out;
     private static final String mapper = "com.lzy.mapper.UserMapper.getUsersByRowBounds";
     private SqlSession session;
 
     @Before
     public void setUp() {
         session = MyBatisUtils.newSqlSession();
-        logger.info("\ninfo: enter into " + this.getClass().getName());
+        logger.println("\ninfo: enter into " + this.getClass().getName());
     }
 
     @After
     public void tearDown() {
-        logger.info("info: exit " + this.getClass().getName() + "\n");
+        logger.println("info: exit " + this.getClass().getName() + "\n");
         session.close();
     }
 
@@ -38,17 +37,7 @@ public class TestUserMapper {
         Map<String, Integer> map = new HashMap<>();
         map.put("startIndex", 0);
         map.put("pageSize", 2);
-        logger.debug(mapper.getUsersByLimit(map));
+        logger.println(mapper.getUsersByLimit(map));
     }
 
-    @Test
-    public void getUserByRowBounds() {
-
-        RowBounds rowBounds = new RowBounds(1, 3);
-
-        List<User> users = session.selectList(
-                mapper, null, rowBounds);
-        logger.debug(users);
-
-    }
 }

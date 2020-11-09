@@ -30,6 +30,10 @@
         SELECT * FROM mybatis.users LIMIT #{startIndex}, #{pageSize};
     </select>
 
+    <select id="getUsersByRowBounds" resultMap="UserMap">
+        SELECT * FROM mybatis.users;
+    </select>
+
     <select id="getUserNameLike" parameterType="String" resultType="User">
         SELECT * FROM mybatis.users WHERE name LIKE #{value};
     </select>
