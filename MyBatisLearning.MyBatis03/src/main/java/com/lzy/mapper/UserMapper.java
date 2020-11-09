@@ -1,10 +1,7 @@
 package com.lzy.mapper;
 
 import com.lzy.bean.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 import java.util.Map;
@@ -17,20 +14,20 @@ public interface UserMapper {
     List<User> getOrderedUsers();
 
     @Select("SELECT * FROM mybatis.users WHERE id=#{id}")
-    User getUserById(int id);
+    User getUserById(@Param("id") int id);
 
     @Select("SELECT pwd FROM mybatis.users WHERE id=#{id}")
-    List<User> getUserNameLike(String value);
+    List<User> getUserNameLike(@Param("value") String value);
 
-    @Select("SELECT * FROM mybatis.users LIMIT #{startIndex}, #{pageSize}")
-    List<User> getUsersByLimit(Map<String, Integer> map);
+    @Select("SELECT * FROM mybatis.users LIMIT #{map[startIndex]}, #{map[pageSize]}")
+    List<User> getUsersByLimit(@Param("map") Map<String, Integer> map);
 
     @Insert("INSERT INTO mybatis.users (id, name, pwd) VALUES (#{id}, #{name}, #{pwd})")
-    boolean addUser(User user);
+    boolean addUser(@Param("user") User user);
 
     @Update("UPDATE mybatis.users SET name=#{name}, pwd=#{pwd} WHERE id=#{id}")
-    boolean updateUser(User user);
+    boolean updateUser(@Param("user")User user);
 
     @Delete("DELETE FROM mybatis.users WHERE id=#{id}")
-    boolean deleteUser(int id);
+    boolean deleteUser(@Param("id")int id);
 }
