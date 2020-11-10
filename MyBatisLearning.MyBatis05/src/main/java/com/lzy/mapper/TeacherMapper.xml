@@ -14,8 +14,8 @@
         </collection>
     </resultMap>
 
-    <select id="getTeachers" resultType="teacher">
-        SELECT * FROM mybatis.teachers;
+    <select id="getTeachers" resultMap="teacher_student">
+        SELECT t.tid tid, t.name tname, s.id id, s.name sname FROM mybatis.teachers t, mybatis.students s;
     </select>
 
     <select id="getTeacherByTid" parameterType="_int" resultMap="teacher_student">

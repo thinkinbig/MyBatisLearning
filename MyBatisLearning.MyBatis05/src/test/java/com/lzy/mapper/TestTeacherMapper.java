@@ -8,6 +8,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 public class TestTeacherMapper {
     private static final Logger logger =
             Logger.getLogger(TestTeacherMapper.class);
@@ -30,5 +32,15 @@ public class TestTeacherMapper {
         TeacherMapper mapper = session.getMapper(TeacherMapper.class);
         Teacher teacher = mapper.getTeacherByTid(1);
         logger.info(teacher);
+    }
+
+    @Test
+    public void test_getTeachers() {
+        TeacherMapper mapper = session.getMapper(TeacherMapper.class);
+        List<Teacher> teachers = mapper.getTeachers();
+        for (Teacher teacher : teachers) {
+            logger.info(teacher);
+        }
+
     }
 }

@@ -5,8 +5,6 @@
 
 <mapper namespace="com.lzy.mapper.StudentMapper">
 
-
-
     <select id="getStudentById" parameterType="_int" resultType="student">
         SELECT * FROM mybatis.students WHERE id=#{id};
     </select>
