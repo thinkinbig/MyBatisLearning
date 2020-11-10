@@ -9,7 +9,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
 
 public class TestStudentMapper {
 
@@ -32,7 +31,14 @@ public class TestStudentMapper {
     @Test
     public void test_getStudents() {
         StudentMapper studentMapper = session.getMapper(StudentMapper.class);
-        logger.debug(studentMapper.getStudents());
+        studentMapper.getStudents().forEach((s) -> logger.info(s));
+    }
+
+    @Test
+    public void test_getStudentById() {
+        StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+        Student student = studentMapper.getStudentById(1);
+        logger.info(student);
     }
 
     @Test

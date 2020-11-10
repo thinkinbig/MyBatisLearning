@@ -18,6 +18,11 @@
         SELECT * FROM mybatis.students WHERE tid=#{tid};
     </select>
 
+    <select id="getStudentById" parameterType="_int" resultMap="student_teacher">
+        SELECT s.id sid, s.name sname, s.tid tid, t.name tname FROM mybatis.students s, mybatis.teachers t WHERE
+            id=#{id};
+    </select>
+
     <select id="getStudents" resultMap="student_teacher">
         SELECT s.id sid, s.name sname, s.tid tid, t.name tname FROM mybatis.students s, mybatis.teachers t WHERE
         s.tid=t.tid;

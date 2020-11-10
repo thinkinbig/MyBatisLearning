@@ -20,6 +20,7 @@
         <module>MyBatisLearning.MyBatis02</module>
         <module>MyBatisLearning.MyBatis03</module>
         <module>MyBatisLearning.MyBatis04</module>
+        <module>MyBatisLearning.MyBatis05</module>
     </modules>
 
     <dependencies>

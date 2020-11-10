@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="MyBatisLearning.MyBatis01" />
+        <module name="MyBatisLearning.MyBatis05" />
         <module name="MyBatisLearning.MyBatis04" />
         <module name="MyBatisLearning.MyBatis03" />
         <module name="MyBatisLearning.MyBatis02" />

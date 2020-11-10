@@ -28,7 +28,7 @@ public class TestTeacherMapper {
     @Test
     public void testGetTeacherById() {
         TeacherMapper teacherMapper = session.getMapper(TeacherMapper.class);
-        Teacher teacher = teacherMapper.getTeacherById(1);
-        logger.debug(teacher);
+        Teacher teacher = teacherMapper.getTeacherByTid(1);
+        logger.info(teacher);
     }
 }

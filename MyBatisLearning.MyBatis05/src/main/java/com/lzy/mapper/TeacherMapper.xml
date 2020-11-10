@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lzy.mapper.TeacherMapper">
+    <resultMap id="teacher_student" type="teacher">
+        <id property="tid" column="tid"/>
+        <result property="name" column="tname"/>
+        <collection property="students" ofType="Student">
+            <id property="id" column="id"/>
+            <result property="name" column="sname"/>
+            <result property="tid" column="tid"/>
+        </collection>
+    </resultMap>
+
+    <select id="getTeachers" resultType="teacher">
+        SELECT * FROM mybatis.teachers;
+    </select>
+
+    <select id="getTeacherByTid" parameterType="_int" resultMap="teacher_student">
+        SELECT t.tid tid, t.name tname, s.id id, s.name sname FROM mybatis.teachers t, mybatis.students s WHERE
+            t.tid=#{tid} AND s.tid=t.tid;
+    </select>
+</mapper>

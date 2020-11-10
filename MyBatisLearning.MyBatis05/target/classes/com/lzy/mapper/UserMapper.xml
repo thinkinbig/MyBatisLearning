@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lzy.mapper.UserMapper">
+
+    <resultMap id="UserMap" type="User">
+        <!--<result column="id" property="id"/>-->
+        <!--<result column="name" property="name"/>-->
+        <result property="password" column="pwd"/>
+    </resultMap>
+    <!--select clause-->
+    <select id="getUsers" resultType="User">
+        SELECT * FROM mybatis.users;
+    </select>
+
+    <select id="getOrderedUsers" resultType="User">
+        SELECT * FROM mybatis.users ORDER BY id DESC;
+    </select>
+
+    <select id="getUserById" parameterType="_int" resultMap="UserMap">
+        SELECT * FROM mybatis.users WHERE id=#{id};
+    </select>
+
+    <select id="getPassById" parameterType="_int" resultType="String">
+        SELECT pwd FROM mybatis.users WHERE id=#{id};
+    </select>
+
+    <select id="getUsersByLimit" parameterType="map" resultType="User">
+        SELECT * FROM mybatis.users LIMIT #{startIndex}, #{pageSize};
+    </select>
+
+    <select id="getUsersByRowBounds" resultMap="UserMap">
+        SELECT * FROM mybatis.users;
+    </select>
+
+    <select id="getUserNameLike" parameterType="String" resultType="user">
+        SELECT * FROM mybatis.users WHERE name LIKE #{value};
+    </select>
+
+    <insert id="addUser" parameterType="user">
+        INSERT INTO mybatis.users (id, name, pwd) VALUES (#{id}, #{name}, #{pwd});
+    </insert>
+
+    <update id="updateUser" parameterType="user">
+        UPDATE mybatis.users SET name=#{name}, pwd=#{pwd} WHERE id=#{id};
+    </update>
+
+    <delete id="deleteUser" parameterType="_int">
+        DELETE FROM mybatis.users WHERE id=#{id};
+    </delete>
+</mapper>
