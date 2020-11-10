@@ -4,7 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lzy.mapper.TeacherMapper">
-    <select id="getTeacher" parameterType="_int" resultType="Teacher">
-        SELECT * FROM mybatis.teachers WHERE teacher_id=#{tid};
+    <select id="getTeachers" resultType="teacher">
+        SELECT * FROM mybatis.teachers;
+    </select>
+
+    <select id="getTeacherById" parameterType="_int" resultType="teacher">
+        SELECT * FROM mybatis.teachers WHERE tid=#{tid};
     </select>
 </mapper>

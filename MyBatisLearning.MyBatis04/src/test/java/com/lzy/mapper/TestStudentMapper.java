@@ -1,5 +1,6 @@
 package com.lzy.mapper;
 
+import com.lzy.bean.Student;
 import com.lzy.bean.Teacher;
 import com.lzy.util.MyBatisUtils;
 import org.apache.ibatis.session.SqlSession;
@@ -8,7 +9,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestTeacherMapper {
+import java.util.List;
+
+public class TestStudentMapper {
+
     private static final Logger logger =
             Logger.getLogger(TestTeacherMapper.class);
     private SqlSession session;
@@ -26,9 +30,15 @@ public class TestTeacherMapper {
     }
 
     @Test
-    public void testGetTeacherById() {
-        TeacherMapper teacherMapper = session.getMapper(TeacherMapper.class);
-        Teacher teacher = teacherMapper.getTeacherById(1);
-        logger.debug(teacher);
+    public void test_getStudents() {
+        StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+        logger.debug(studentMapper.getStudents());
+    }
+
+    @Test
+    public void test_getTeacher() {
+        StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+        Teacher teacher = studentMapper.getTeacher(2);
+        logger.info(teacher);
     }
 }

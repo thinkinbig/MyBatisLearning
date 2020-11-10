@@ -2,7 +2,13 @@ package com.lzy.mapper;
 
 import com.lzy.bean.Teacher;
 
+import java.util.List;
+
 public interface TeacherMapper {
 
-    Teacher getTeacher(int tid);
+    List<Teacher> getTeachers();
+
+    Teacher getTeacherById(int tid);
+
+
 }

@@ -16,9 +16,9 @@
     </settings>
 
     <typeAliases>
-        <typeAlias type="com.lzy.bean.User" alias="User"/>
-        <typeAlias type="com.lzy.bean.Teacher" alias="Teacher"/>
-        <typeAlias type="com.lzy.bean.Student" alias="Student"/>
+        <typeAlias type="com.lzy.bean.User" alias="user"/>
+        <typeAlias type="com.lzy.bean.Teacher" alias="teacher"/>
+        <typeAlias type="com.lzy.bean.Student" alias="student"/>
     </typeAliases>
 
     <environments default="development">
@@ -37,6 +37,7 @@
     <mappers>
         <mapper class="com.lzy.mapper.UserMapper"/>
         <mapper class="com.lzy.mapper.TeacherMapper"/>
+        <mapper class="com.lzy.mapper.StudentMapper"/>
     </mappers>
 
 </configuration>
